@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON格式化工具</title>
+    <link rel="stylesheet" href="json_formatter.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>JSON格式化工具</h1>
+            <p>输入、格式化、验证和压缩JSON数据</p>
+        </header>
+
+        <div class="main-content">
+            <div class="input-section">
+                <div class="toolbar">
+                    <button id="formatBtn" class="btn btn-primary">格式化</button>
+                    <button id="compressBtn" class="btn btn-secondary">压缩</button>
+                    <button id="copyBtn" class="btn btn-secondary">复制结果</button>
+                    <button id="clearBtn" class="btn btn-danger">清空</button>
+                    <input type="file" id="fileInput" accept=".json,text/plain" style="display: none;">
+                    <button id="importBtn" class="btn btn-secondary">导入文件</button>
+                    <button id="exportBtn" class="btn btn-secondary">导出结果</button>
+                </div>
+
+                <div class="editor-container">
+                    <div class="result-header">
+                        <span id="resultLabel">JSON编辑器:</span>
+                        <div id="statusIndicator" class="status-indicator">就绪</div>
+                    </div>
+                    <div id="jsonEditor" class="code-editor"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="errorDisplay" class="error-display hidden"></div>
+    </div>
+    
+    <!-- 引入 CodeMirror -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/lint/json-lint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/lint/lint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsonlint/1.6.0/jsonlint.min.js"></script>
+    <script src="json_formatter.js"></script>
+</body>
+
+</html>
