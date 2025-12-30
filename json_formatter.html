@@ -1,24 +1,46 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON格式化工具</title>
-    <link rel="stylesheet" href="json_formatter.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ✅ SEO 核心 Meta 信息 -->
+    <title>JSON格式化工具 - 在线美化、压缩与验证JSON数据</title>
+    <meta name="description" content="免费在线JSON格式化工具，支持JSON美化、压缩、校验、高亮显示。快速格式化JSON字符串，便于调试和阅读。" />
+    <meta name="keywords" content="JSON格式化, JSON美化, JSON压缩, JSON验证, 在线JSON工具, JSON编辑器" />
+    <meta name="author" content="www.pigworker.cn" />
+    <link rel="canonical" href="https://www.pigworker.cn" /> <!-- ✅ 建议设置规范链接 -->
+
+    <!-- ✅ Open Graph（用于社交媒体分享） -->
+    <meta property="og:title" content="JSON格式化工具 - 在线美化、压缩与验证JSON数据" />
+    <meta property="og:description" content="免费在线JSON格式化工具，支持JSON美化、压缩、校验、高亮显示。快速格式化JSON字符串，便于调试和阅读。" />
+    <meta property="og:type" content="website" />
+
+    <!-- ✅ Twitter Card 支持 -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="JSON格式化工具 - 在线美化、压缩与验证JSON数据" />
+    <meta name="twitter:description" content="免费在线JSON格式化工具，支持JSON美化、压缩、校验、高亮显示。" />
+
+    <!-- ✅ Favicon（建议添加） -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- 样式资源 -->
+    <link rel="stylesheet" href="json_formatter.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css" />
 </head>
 
 <body>
     <div class="container">
         <header>
+            <!-- ✅ H1 包含主关键词，利于SEO -->
             <h1>JSON格式化工具</h1>
-            <p>输入、格式化、验证和压缩JSON数据</p>
+            <p>输入、格式化、验证和压缩JSON数据，在线美化JSON文本，方便开发与调试。</p>
         </header>
 
-        <div class="main-content">
-            <div class="input-section">
+        <main class="main-content">
+            <!-- ✅ 使用 <section> 增加语义结构 -->
+            <section class="input-section" aria-label="JSON输入与操作区">
                 <div class="toolbar">
                     <button id="formatBtn" class="btn btn-primary">格式化</button>
                     <button id="compressBtn" class="btn btn-secondary">压缩</button>
@@ -30,17 +52,31 @@
                 <div class="editor-container">
                     <div class="result-header">
                         <span id="resultLabel">JSON编辑器:</span>
-                        <div id="statusIndicator" class="status-indicator">就绪</div>
+                        <div id="statusIndicator" class="status-indicator" aria-live="polite">就绪</div>
                     </div>
-                    <div id="jsonEditor" class="code-editor"></div>
+                    <!-- ✅ 为无障碍考虑添加 aria-label -->
+                    <div id="jsonEditor" class="code-editor" aria-label="JSON代码编辑器"></div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
 
-        <div id="errorDisplay" class="error-display hidden"></div>
+        <!-- ✅ 错误提示区域，使用 role 提高可访问性 -->
+        <div id="errorDisplay" class="error-display hidden" role="alert" aria-live="assertive"></div>
+
+        <!-- ✅ 增加额外说明内容有助于SEO长尾词排名 -->
+        <section class="seo-description" aria-label="工具介绍">
+            <h2>为什么使用我们的JSON格式化工具？</h2>
+            <p>本工具可以帮助开发者快速将混乱或压缩的JSON字符串转换为易读的格式，支持语法验证、一键压缩节省空间，以及保存操作历史记录。适用于前端调试、API开发、日志分析等场景。</p>
+            <ul>
+                <li>支持实时语法检查与错误提示</li>
+                <li>多种主题和高亮显示</li>
+                <li>无需注册，完全免费使用</li>
+                <li>支持复制到剪贴板和历史记录查看</li>
+            </ul>
+        </section>
     </div>
-    
-    <!-- 引入 CodeMirror -->
+
+    <!-- JS 脚本 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/lint/json-lint.min.js"></script>
@@ -48,5 +84,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsonlint/1.6.0/jsonlint.min.js"></script>
     <script src="json_formatter.js"></script>
 </body>
-
 </html>
